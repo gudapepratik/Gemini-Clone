@@ -20,7 +20,9 @@ export default {
       spacing: {
         'response-box-h': '27rem',
         'responsive-box-w': '40rem',
-        'input-box-w': '52rem'
+        'input-box-w': '52rem',
+        'mobile-sidebar-height': "56rem",
+        'mobile-main-height': "54rem",
       },
 
       keyframes: {

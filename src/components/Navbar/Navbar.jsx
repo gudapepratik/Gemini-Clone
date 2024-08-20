@@ -1,12 +1,13 @@
-import { RiApps2AddLine, RiArrowDropDownFill, RiMenuLine } from '@remixicon/react'
+import { RiAddLine,RiCircleFill, RiQuestionLine,RiHistoryLine,RiSettings4Line, RiApps2AddLine, RiArrowDropDownFill, RiMenuLine } from '@remixicon/react'
 import React, { useState , useContext} from 'react'
 import {assets} from '../../assets/assets'
 import Sidebar from '../Sidebar/Sidebar'
 import { Context } from '../../Context/Context'
+import Task from '../Task'
 function Navbar() {
 
   const [issidebaron,setIsSidebarOn] = useState(false)
-
+  const {prevPrompts} = useContext(Context);
   const toggleSidebar = () => {
     console.log(issidebaron)
     setIsSidebarOn(prev => !prev)
@@ -15,8 +16,49 @@ function Navbar() {
     <>  
         {issidebaron && (
           <>
-            <div className='absolute z-10 w-4/5 h-screen bg-zinc-800'>
-            
+            <div className='absolute z-10 w-4/5  bg-zinc-900 flex animate-slideIn'>
+                      <div className='w-full  h-mobile-sidebar-height flex flex-col items-start pt-28 px-8 '>
+                                <button className='flex items-center  bg-zinc-700  px-4 py-2 rounded-full text-zinc-100'>
+                                  <RiAddLine size={30}/>
+                                  <p>New chat</p>
+                                </button>
+                                <div className='my-3 pl-5 text-lg'>Recents</div>
+                                <div className='w-full flex  px-3 rounded-xl  flex-col  overflow-x-scroll no-scrollbar h-80 mt-3 py-5'>
+                                            {/* <Task text='This is a new task'/>
+                                            <Task text='This is a new task'/> */}
+                                            {prevPrompts.map((taskitem,index) => {
+                                                     return  (
+                                                    <Task text={taskitem}/>
+                                                    )
+                                            })}
+                                </div>
+                           <div className='flex flex-col mt-10 w-full items-center gap-2 ml-4'>
+                                <div className="flex gap-4 p-2 pl-3 w-72 items-center mb-0 mr-2  justify-start hover:bg-zinc-800 cursor-pointer rounded-full ">
+                                       <RiQuestionLine size={20} className="text-white font-bold" />
+                                       <p className="text-white text-sm font-bold">Help</p>
+                                         <div className="dot w-2 box-border ml-40 h-2 rounded-full bg-blue-700"></div>
+                                </div>
+                                <div className="flex gap-4 p-2 pl-3 w-72 items-center mb-0 mr-2  justify-start hover:bg-zinc-800 cursor-pointer rounded-full ">
+                                      <RiHistoryLine size={20} className="text-white font-bold" />
+                                       <p className="text-white text-sm font-bold">Activity</p>
+                                </div>
+                                <div className="flex gap-4 p-2 pl-3 w-72 items-center mb-0 mr-2  justify-start hover:bg-zinc-800 cursor-pointer rounded-full ">
+                                      <RiSettings4Line size={20} className="text-white font-bold" />
+                                       <p className="text-white text-sm font-bold">Settings</p>
+                                </div>
+                                <div className="location-box mt-8 w-full">
+                                      <div className="flex items-center gap-3">
+                                            <RiCircleFill size={10} className="text-zinc-700" />
+                                             <p className="text-white text-xs">Pune, Maharashtra, India</p>
+                                      </div>
+                                      <div className="flex text-center">
+                                            <p className="text-blue-800 cursor-pointer font-semibold ml-5 mt-1 text-xs ">
+                                                  from your IP address Update Location
+                                            </p>
+                                       </div>
+                                </div>
+                            </div>
+                      </div>
             </div>
           </>
         )}

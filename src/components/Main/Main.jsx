@@ -29,22 +29,22 @@ function Main() {
 
   return (
     <>
-      <div className="flex flex-col w-full h-100vh text-white lg:overflow-y-hidden max-[640px]:w-100vw max-[640px]:h-screen">
+      <div className="flex flex-col w-full h-100vh text-white lg:overflow-y-hidden max-[640px]:w-100vw max-[640px]:h-mobile-main-height">
         <Navbar />
         <div className="h-full w-full bg-zinc-950 flex justify-center">
           <div className=" mt-2 flex items-center flex-col w-fit mx-3">
             {!showResults ? (
               <>
-                <div className="mb-4 flex w-full items-start flex-col">
+                <div className="mb-4 flex w-full items-start flex-col max-[640px]:items-center">
                   <h1 className="font-openSans font-semibold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500 leading-relaxed">
-                    Hello, Pratik
+                    Hello, Alias
                   </h1>
                   <h2 className="font-openSans font-semibold text-transparent text-5xl text-zinc-600 max-[640px]:text-3xl">
                     How can I help you Today?
                   </h2>
                 </div>
 
-                <div className="flex gap-4 mt-16 sm:flex-wrap sm:overflow-scroll no-scrollbar sm:h-60 max-[950px]:w-4/5 max-[640px]:flex-wrap max-[640px]:px-10 max-[640px]:max-w-full max-[640px]:items-center max-[640px]:h-2/5 max-[640px]:overflow-scroll">
+                <div className="flex gap-4 mt-16 sm:flex-wrap sm:overflow-scroll no-scrollbar sm:h-60 max-[950px]:w-4/5 max-[640px]:flex-wrap max-[640px]:px-16 max-[640px]:max-w-full max-[640px]:items-center max-[640px]:h-2/5 max-[640px]:overflow-scroll">
                   <div className="bg-zinc-900 p-5 rounded-xl flex flex-col flex-shrink-0 flex-grow-0  w-48 h-52 relative hover:bg-zinc-800 cursor-pointer">
                     <h4 className="font-poppins text-zinc-200 text-sm">
                       Walk me through how to apply for a new role
